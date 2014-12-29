@@ -1,0 +1,8 @@
+class CreateWifiinfos < ActiveRecord::Migration
+  def change
+    create_table :wifiinfos do |t|
+
+      t.timestamps
+    end
+  end
+end

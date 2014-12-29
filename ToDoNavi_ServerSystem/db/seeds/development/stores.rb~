@@ -1,0 +1,24 @@
+# coding: utf-8
+name = ["ウェルパーク","ダイエー", "LIFE", "OKストア"]
+address = [
+  "〒214-0014 神奈川県川崎市多摩区登戸2754",
+  "〒214-0014 神奈川県川崎市多摩区登戸2789",
+  "〒214-0014 神奈川県川崎市多摩区登戸2735",
+  "〒214-0034 神奈川県川崎市多摩区三田4-1-1"]
+tel = ["044-932-8320",
+       "044-922-5391",
+       "044-933-9361",
+       "044-922-2961"]
+open_t = %w(930 700 930 830)
+close_t = %w(2330 2300 2500 2130)
+
+0.upto(3) do |index|
+  Store.create(
+    store_number: index + 1,
+    store_name: name[index],
+    address: address[index],
+    phone_number: tel[index],
+    open_time: open_t[index],
+    close_time: close_t[index]
+  )
+end

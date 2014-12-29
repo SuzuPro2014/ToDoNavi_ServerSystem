@@ -1,0 +1,41 @@
+<% @page_title = @store.store_name + "詳細" %>
+<h1><%= @page_title %></h1>
+
+<table class="attr">
+  <tr>
+    <th width="100">店舗番号</th>
+    <td><%= sprintf("%07d", @store.store_number) %></td>
+  </tr>
+
+  <tr>
+    <th>店舗名称</th>
+    <td><%= @store.store_name %></td>
+  </tr>
+
+  <tr>
+    <th>住所</th>
+    <td><%= @store.address %></td>
+  </tr>
+
+  <tr>
+    <th>電話番号</th>
+    <td><%= @store.phone_number %></td>
+  </tr>
+
+  <tr>
+    <th>営業時間</th>
+    <td>
+      <%= Time.now.midnight.advance(:seconds => @store.open_time).strftime('%H:%M') %> ～
+      <%= Time.now.midnight.advance(:seconds => @store.close_time).strftime('%H:%M') %>
+    </td>
+  </tr>
+</table>
+
+<table class="tcont">
+  <tr>
+    <td>
+      <%= link_to "編集", [:edit, :admin, @store] %> / 
+      <%= link_to "一覧に戻る", :admin_stores %>
+    </td>
+  </tr>
+</table>

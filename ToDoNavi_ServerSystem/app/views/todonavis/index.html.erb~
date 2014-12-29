@@ -1,0 +1,44 @@
+<% @page_title = "Between the server and the client communication" %>
+
+<h1><%= @page_title %></h1>
+
+<h2>Genre Print</h2>
+<%= form_tag :genrePrint_todonavis, method: :get do %>
+<p>
+  <%= submit_tag "genre" %>
+</p>
+<% end %>
+
+<h2>Item Print</h2>
+<%= form_tag :itemPrint_todonavis, method: :get do %>
+<p>
+  <%= text_field_tag "id", params[:id] %><br />
+  <%= submit_tag "item" %>
+</p>
+<% end %>
+
+<h2>Location Search</h2>
+<%= form_tag :locationSearch_todonavis, method: :get do %>
+<p>
+  経度：<%= text_field_tag "long", params[:long] %><br />
+  緯度：<%= text_field_tag "lat", params[:lat] %><br />
+  <%= submit_tag "検索" %>
+</p>
+<% end %>
+
+<h2>Wi-Fi Search</h2>
+<%= form_tag :wifiSearch_todonavis, method: :get do %>
+<p>
+  SSID ：<%= text_field_tag "ssid[]", params[:ssid] %><br />
+  BSSID：<%= text_field_tag "bssid[]", params[:bssid] %><br />
+  <%= submit_tag "検索" %>
+</p>
+<% end %>
+
+<h2>Item Search</h2>
+<%= form_tag :itemSearch_todonavis, method: :get do %>
+<p>
+  Item：<%= text_field_tag "item[]", params[:item] %><br />
+  <%= submit_tag "検索" %>
+</p>
+<% end %>

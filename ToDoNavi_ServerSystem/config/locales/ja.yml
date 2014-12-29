@@ -1,0 +1,41 @@
+ja:
+  activerecord:
+    models:
+      store: 店舗情報
+      item: 商品情報
+      itemprice: 商品価格情報
+      genre: ジャンル情報
+      locationinfo: 位置情報
+      wifiinfo: Wi-Fi情報
+    attributes:
+      store:
+        store_number: 店舗番号*
+        store_name: 店舗名称*
+        address: 住所 
+        phone_number: 電話番号 
+        open_time: 開店時間*
+        close_time: 閉店時間*
+      item:
+        item_number: 商品番号*
+        item_name: 商品名称*
+        genre_number: 商品ジャンル*
+      itemprice:
+        store_number: 販売店舗*
+        item_number: 対象商品*
+        prices: 価格（税別）*
+      genre:
+        genre_number: ジャンル番号*
+        genre_name: ジャンル名称*
+      locationinfo:
+        location_info_number: 位置情報番号*
+        store_number: 対象店舗*
+        long: 経度*
+        lat: 緯度*
+      wifiinfo:
+        wifi_info_number: Wi-Fi情報番号*
+        store_number: 対象店舗*
+        ssid: SSID*
+        bssid: BSSID*
+  will_paginate:
+    previous_label: "Back"
+    next_label: "Next"

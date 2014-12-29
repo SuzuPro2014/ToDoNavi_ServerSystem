@@ -1,0 +1,30 @@
+<% @page_title = "ジャンル一覧" %>
+<h1><%= @page_title %></h1>
+
+<p>
+  <%= link_to "新規ジャンル登録", :new_genre %>
+</p>
+
+<% if @genres.present? %>
+<table class="list">
+  <tr>
+    <th width="100">ジャンル番号</th>
+    <th>ジャンル名称</th>
+    <th width="80">操作</th>
+  </tr>
+  <% @genres.each do |genre| %>
+  <tr>
+    <td><%= sprintf("%07d", genre.genre_number) %></td>
+    <td>
+      <div id="list"><%= genre.genre_name %></div>
+    </td>
+    <td>
+      <%= link_to "編集", [:edit, genre] %> / 
+      <%= link_to "削除", genre, method: :delete, confirm: "本当に削除しますか？" %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>ジャンル情報がありません。</p>
+<% end %>

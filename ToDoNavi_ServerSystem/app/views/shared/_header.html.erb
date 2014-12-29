@@ -1,0 +1,26 @@
+<div class = "title">
+  ToDoNavi 
+  <br />
+  -Database Management System-
+  <br />
+  <br />
+</div>
+
+<div id = "menubar">
+  <ul>
+    <% if controller.kind_of?(Admin::Base) %>
+    <li><%= link_to "TOP", :admin_root %></li>
+    <li><%= link_to "Store", :admin_stores %></li>
+    <li><%= link_to "Item", :admin_items %></li>
+    <li><%= link_to "Item Price", :admin_itemprices %></li>
+    <li><%= link_to "Genre", :admin_genres %></li>
+    <li><%= link_to "Location", :admin_locationinfos %></li>
+    <li><%= link_to "Wi-Fi", :admin_wifiinfos %></li>
+    <li><%= link_to "Logout", :session, method: :delete, confirm: "ログアウトしますか？" %></li>
+    <% else %>
+    <li><%= link_to "TOP", root_path %></li>
+    <li><%= link_to "Search", :todonavis %></li>
+    <li><%= link_to "Login", loginform_path %></li>
+    <% end %>
+  </ul>
+</div>

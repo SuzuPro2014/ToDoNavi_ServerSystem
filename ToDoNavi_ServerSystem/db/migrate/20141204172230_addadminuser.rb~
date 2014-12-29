@@ -1,0 +1,4 @@
+class Addadminuser < ActiveRecord::Migration
+  def change
+  end
+end

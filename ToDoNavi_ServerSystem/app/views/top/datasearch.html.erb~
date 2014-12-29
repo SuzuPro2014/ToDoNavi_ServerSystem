@@ -1,0 +1,32 @@
+<% @page_title = "Client Connection（仮）" %>
+
+<h1><%= @page_title %></h1>
+
+<h2>Location Search</h2>
+<%= form_tag :search_locationinfos, method: :get do %>
+<p>
+  経度：<%= text_field_tag "long", params[:long] %><br />
+  緯度：<%= text_field_tag "lat", params[:lat] %><br />
+  <%= submit_tag "検索" %>
+</p>
+<% end %>
+
+<h2>Wi-Fi Search</h2>
+<%= form_tag :search_wifiinfos, method: :get do %>
+<p>
+  SSID ：<%= text_field_tag "ssid[]", params[:ssid] %><br />
+  BSSID：<%= text_field_tag "bssid[]", params[:bssid] %><br />
+  SSID ：<%= text_field_tag "ssid[]", params[:ssid] %><br />
+  BSSID：<%= text_field_tag "bssid[]", params[:bssid] %><br />
+  
+  <%= submit_tag "検索" %>
+</p>
+<% end %>
+
+<h2>Test Search</h2>
+<%= form_tag :search_top, method: :get do %>
+<p>
+  <%= text_field_tag "q", params[:q] %>
+  <%= submit_tag "検索" %>
+</p>
+<% end %>

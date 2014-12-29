@@ -1,0 +1,42 @@
+<%= render "shared/errors", obj: @store %>
+
+<p>
+  「＊」は必須項目です。<br />
+  <br />
+  電話番号はハイフン有りで入力して下さい。<br />
+  　　ex）044-9999-9999<br />
+  開店時間及び閉店時間は24時間表記で数値で入力して下さい。<br />
+  　　ex）14:00 → 1400
+</p>
+
+<table class = "attr">
+  <tr>
+    <th width="100"><%= form.label :store_number %></th>
+    <td><%= form.text_field :store_number %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :store_name %></th>
+    <td><%= form.text_field :store_name %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :address %></th>
+    <td><%= form.text_field :address, size: 80 %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :phone_number %></th>
+    <td><%= form.telephone_field :phone_number %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :open_time %></th>
+    <td><%= form.text_field :open_time, value: @open %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :close_time %></th>
+    <td><%= form.text_field :close_time, value: @close %></td>
+  </tr>
+</table>

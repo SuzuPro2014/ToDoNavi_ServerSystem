@@ -1,0 +1,258 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* ページ全体 */
+body {
+    background-color: #cccccc;
+    color: black;
+    margin: 0; padding: 0;
+    font-family: Meiryo, sans-serif;
+}
+
+/* リンク */
+a:link { color: #3333cc; text-decoration: none; }
+a:visited { color: #3333cc; text-decoration: none; }
+a:hover { color: #3300cc; text-decoration: none; }
+a img { border: none; }
+
+/* ブロック要素 */
+p, h1, h2, h3, table, ul {
+    margin: 0 0 1em;
+}
+
+/* 全体の枠 */
+div#container {
+    margin: 0 auto;
+    padding-top: 0px;
+    width: 1053px;
+    background-color: #ffffff;
+}
+
+/* 左の枠（コンテンツを入れる） */
+div#content {
+    /* float: center; */
+    width: 900px;
+    padding: 50px 11px 10px 10px;
+}
+
+/* 上の枠（ヘッダーを入れる） */
+div#header {
+    background-image: url("bg02.jpg");
+    padding: 100px 0px 0px 0px;
+    font-size: 86%;
+}
+
+/* タイトル */
+div.title {
+    color: white;
+    font-size: 200%;
+    font-family:'Century Gothic', sans-serif;
+    text-align: right;
+}
+
+
+/* メニューバーの設定　ここから！ */
+div#menubar ul li a{
+    border-right:1px solid;
+    padding:8px 10px 8px 10px;
+    display:block;
+    color: #ffffff;
+    background-color: #000000;
+    text-decoration:none;
+}
+
+div#menubar ul{
+    height: auto;
+    margin: 0;
+    padding: 0;
+    line-height: 100%;
+    list-style-type: none;
+}
+
+div#menubar ul li{
+    margin:0;
+    padding:0;
+    float:left;
+    width:131.6px;
+    text-align:center;
+    display:block;
+    color: #ffffff;
+    background-color: #000000;
+    text-decoration:none;
+}
+
+div#menubar ul li a {
+    font-size:100%;
+    position: relative;
+    color: #ffffff;
+    background-color: #000000;
+    text-decoration: none;
+}
+
+
+div#menubar ul li a:hover {
+    color: #ffffff;
+    background-color: #3366ff;
+}
+
+/* 下の枠（フッターを入れる） */
+div#footer {
+  clear: both;
+  font: 11px Verdana;
+  color: #888;
+  padding: 8px 0;
+  border-top: 2px solid #99ccff;
+  border-top-style: dotted;
+  background-color: #ffffff;
+  text-align: right;
+}
+    
+/* メインコンテンツ */
+div#content h1 {
+    padding:3px 5px;
+    border-color:#6AA2DB;
+    border-width:1px 1px 1px 7px;
+    border-style:solid;
+    background:#EEF6FF;
+    font-size: 100%;
+    width: 113%;
+}
+
+div#content h2 {
+    color: #006666;
+    font-weight: normal;
+    font-size: 120%;
+    font-family: "arial black";
+    padding-left: 6px;
+    border-bottom: 1px dotted #669966;
+    margin-bottom: 0.5em;
+}
+
+div#content p, div#content ul {
+    font-size: 90%;
+    line-height: 1.5;
+}
+
+/* 表：一覧表示、詳細表示 */
+
+table.tcont {
+    font-size: 80%;
+    width: 80%;
+}
+table.tcont td {
+    font-weight: normal;
+    table-layout: fixed;
+    text-align: right;
+}
+
+table.attr, table.list {
+	font-size: 80%;
+	width: 80%;
+}
+table.attr th, table.list th {
+    background-color: #99ccff;
+    color: black;
+    font-weight: normal;
+    table-layout: fixed;
+    padding: 4px;
+}
+table.attr td, table.list td {
+    background-color: #eef6ff;
+    color: black;
+    font-weight: normal;
+    table-layout: fixed;
+    padding: 4px;
+}
+
+table.attr th {
+    text-align: right;
+}
+table.list td {
+    text-align: center;
+}
+
+table.list th {
+    text-align: center;
+}
+
+div#list {
+    text-align: left;
+}
+div#list2 {
+    text-align: right;
+}
+
+.attr a{ color: #3333cc; text-decoration: none; }
+.attr a:visited { color: #3333cc; text-decoration: none; }
+.attr a:hover { color: #3300cc; text-decoration: none; }
+
+.list a{ color: #3333cc; text-decoration: none; }
+.list a:visited { color: #3333cc; text-decoration: none; }
+.list a:hover { color: #3300cc; text-decoration: none; }
+
+
+/* フラッシュ */
+p.notice {
+    border: 1px solid blue;
+    padding: 3px;
+    background-color: #ccf;
+}
+
+/* エラー表示 */
+div#errors {
+    background-color: #fee;
+    border: 1px solid #f00;
+    padding: 3px 6px;
+    margin: 0 0 1em;
+}
+
+div#errors h2 {
+    font-size: 12px;
+    font-weight: bolder;
+    color: red;
+    margin: 0 0 4px;
+    border: none;
+    border-bottom: 1.5px dotted #f00;
+}
+div#errors ul {
+    margin: 0;
+    padding-left: 1.5em;
+}
+
+
+div.field_with_errors {
+    color: #f00;
+    font-weight: bolder;
+}
+
+/* ページネーション */
+div.pagination {
+    font-size: 75%;
+    padding: 4px 8px;
+    word-spacing: 4px;
+    text-align: right;
+
+    em { font-style: normal; }
+    em.current {
+	color: #499;
+	font-weight: bold;
+    }
+}
+
+.pagination a{ color: #3333cc; text-decoration: none; }
+.pagination a:visited { color: #3333cc; text-decoration: none; }
+.pagination a:hover { color: #3300cc; text-decoration: none; }
+.pagination a img { border: none; }

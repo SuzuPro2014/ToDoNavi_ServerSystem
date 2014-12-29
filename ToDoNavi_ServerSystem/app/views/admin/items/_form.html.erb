@@ -1,0 +1,20 @@
+<%= render "shared/errors", obj: @item %>
+
+<p>
+  「＊」が付いている項目は必須項目です。
+</p>
+
+<table class="attr">
+  <tr>
+    <th width="90"><%= form.label :item_number %></th>
+    <td><%= form.text_field :item_number %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :genre_number %></th>
+    <td><%= form.collection_select :genre_number, Genre.all, :genre_number, :genre_name, :prompt => "ジャンル選択" %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :item_name %></th>
+    <td><%= form.text_field :item_name, size: 80 %></td>
+  </tr>
+</table>

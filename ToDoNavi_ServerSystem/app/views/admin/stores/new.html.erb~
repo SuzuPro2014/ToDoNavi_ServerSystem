@@ -1,0 +1,17 @@
+<% @page_title = "新規店舗登録" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @store do |form| %>
+<%= render "form", form: form %>
+<table class="tcont">
+  <tr>
+    <td><%= form.submit %></td>
+  </tr>
+</table>
+<% end %>
+
+<table class="tcont">
+  <tr>
+    <td><%= link_to "一覧に戻る", :stores %></td>
+  </tr>
+</table>

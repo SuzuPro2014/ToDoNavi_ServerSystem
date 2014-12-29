@@ -1,0 +1,51 @@
+<% @page_title = "商品価格一覧" %>
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "新規商品価格登録", :new_admin_itemprice %></p>
+
+<% if @itemprices.present? %>
+<table class="list">
+  <tr>
+    <th>販売店舗</th>
+    <th>商品名称</th>
+    <th width="100">商品価格</th>
+    <th width="80">操作</th>
+  </tr>
+  <% @itemprices.each do |price| %>
+  <tr>
+    <td>
+      <div id="list">
+	<% @stores.each do |store| %>
+	<% if price.store_number == store.store_number %>
+	<%= store.store_name %>
+	<% break %>
+	<% end %>
+	<% end %>
+      </div>
+    </td>
+    <td>
+      <div id="list">
+	<% @items.each do |item| %>
+	<% if price.item_number == item.item_number %>
+	<%= item.item_name %>
+	<% break %>
+	<% end %>
+	<% end %>
+      </div>
+    </td>
+    <td>
+      <div id="list2">
+	\<%= number_with_delimiter(price.prices) %>
+      </div>
+    </td>
+    <td>
+      <%= link_to "編集", [:edit, :admin, price] %> / 
+      <%= link_to "削除", [:admin, price], method: :delete, confirm: "本当に削除しますか？" %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<%= will_paginate @itemprices %>
+<% else %>
+<p>商品価格情報がありまえん。</p>
+<% end %>

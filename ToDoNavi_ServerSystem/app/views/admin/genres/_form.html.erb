@@ -1,0 +1,16 @@
+<%= render "shared/errors", obj: @genre %>
+
+<p>
+  「＊」は必須項目です。
+</p>
+
+<table class="attr">
+  <tr>
+    <th width="100"><%= form.label :genre_number %></th>
+    <td><%= form.text_field :genre_number %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :genre_name %></th>
+    <td><%= form.text_field :genre_name %></td>
+  </tr>
+</table>

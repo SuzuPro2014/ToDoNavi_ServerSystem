@@ -1,0 +1,20 @@
+<%= render "shared/errors", obj: @itemprice %>
+
+<p>
+  「＊」が付いている項目は必須項目です。
+</p>
+
+<table class="attr">
+  <tr>
+    <th width="90"><%= form.label :store_number %></th>
+    <td><%= form.collection_select :store_number, Store.all, :store_number, :store_name, :prompt => "店舗選択" %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :item_number %></th>
+    <td><%= form.collection_select :item_number, Item.all, :item_number, :item_name, :prompt => "商品選択" %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :prices %></th>
+    <td><%= form.text_field :prices %></td>
+  </tr>
+  </table>

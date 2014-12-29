@@ -1,0 +1,10 @@
+# coding: utf-8
+number = %w(101 102 103 104)
+name = ["トイレットペーパー", "ティッシュ", "シャンプー＆リンス", "ボディーソープ"]
+
+0.upto (3) do |index|
+  Genre.create(
+    genre_number: number[index],
+    genre_name: name[index]
+  )
+end

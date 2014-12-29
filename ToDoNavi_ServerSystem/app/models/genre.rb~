@@ -1,0 +1,8 @@
+# coding: utf-8
+class Genre < ActiveRecord::Base
+
+  # ジャンル↔商品
+  has_many :items, dependent: :destroy
+
+  
+end

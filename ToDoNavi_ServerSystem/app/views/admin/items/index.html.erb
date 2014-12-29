@@ -1,0 +1,47 @@
+<% @page_title = "商品一覧" %>
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "新規商品登録", :new_admin_item %></p>
+
+<%= form_tag :search_admin_items, method: :get do %>
+<p>
+  <%= collection_select(:genre, nil, Genre.all, :genre_number, :genre_name, :prompt => "ジャンル選択") %>
+  <%= collection_select(:item, nil, Item.all, :item_number, :item_name, :prompt => "商品選択") %>
+  <%= submit_tag "検索" %>
+</p>
+<% end %>
+  
+
+<% if @items.present? %>
+<table class = "list">
+  <tr>
+    <th width="100">商品番号</th>
+    <th>商品名称</th>
+    <th width="120">ジャンル</th>
+    <th width="80">操作</th>
+  </tr>
+  <% @items.each do |item| %>
+  <tr>
+    <td><%= sprintf("%07d", item.item_number) %></td>
+    <td><div id="list"><%= item.item_name %><div></td>
+    <td>
+      <div id="list">
+	<% @genres.each do |genre| %>
+	<% if item.genre_number == genre.genre_number %>
+	<%= genre.genre_name %>
+	<% break %>
+	<% end %>
+	<% end %>
+      </div>
+    </td>
+    <td>
+      <%= link_to "編集", [:edit, :admin, item] %> / 
+      <%= link_to "削除", [:admin, item], method: :delete, confirm: "本当に削除しますか？" %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<%= will_paginate @items %>
+<% else %>
+<p>商品情報がありません。</p>
+<% end %>

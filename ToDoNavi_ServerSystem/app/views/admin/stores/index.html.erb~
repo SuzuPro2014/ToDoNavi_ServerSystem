@@ -1,0 +1,47 @@
+<% @page_title = "店舗一覧" %>
+<h1><%= @page_title %></h1>
+
+<p>
+  <%= link_to "新規店舗登録", :new_admin_store %>
+</p>
+
+<%= form_tag :search_admin_stores, method: :get do %>
+<p>
+  <%= collection_select(:q, :store_name, @stores, :store_name, :store_name, :prompt => "検索店舗選択") %>
+  <%= submit_tag "検索" %>
+</p>
+<% end %>
+
+<% if @stores.present? %>
+<table class="list">
+  <tr>
+    <th width="80">店舗番号</th>
+    <th>店舗名称</th>
+    <th width="125">営業時間</th>
+    <th width="125">電話番号</th>
+    <th width="80">操作</th>
+  </tr>
+  <% @stores.each do |store| %>
+  <tr>
+    <td><%= sprintf("%07d", store.store_number) %></td>
+    <td>
+      <div id="list">
+	<%= link_to store.store_name, [:admin, store] %>
+      </div>
+    </td>
+    <td>
+      <%= Time.now.midnight.advance(:seconds => store.open_time).strftime('%H:%M') %> ～
+      <%= Time.now.midnight.advance(:seconds => store.close_time).strftime('%H:%M') %>
+    </td>
+    <td><%= store.phone_number %></td>
+    <td>
+      <%= link_to "編集", [:edit, :admin, store] %> /
+      <%= link_to "削除", [:admin, store], method: :delete, confirm: "本当に削除しますか？" %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<%= will_paginate @stores %>
+<% else %>
+<p>店舗情報はありません。</p>
+<% end %>

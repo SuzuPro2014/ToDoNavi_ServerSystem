@@ -1,0 +1,50 @@
+<% @page_title = "Wi-Fi情報一覧" %>
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "新規Wi-Fi情報登録", :new_admin_wifiinfo %></p>
+
+<%= form_tag :search_admin_wifiinfos, method: :get do %>
+<p>
+  <%= collection_select(:store, nil, Store.all, :store_number, :store_name, :prompt => "店舗選択") %>
+  <%= submit_tag "検索" %>
+</p>
+<% end %>
+  
+
+<% if @wifiinfos.present? %>
+<table class="list">
+  <tr>
+    <th width="100">Wi-Fi情報番号</th>
+    <th>対象店舗</th>
+    <th>SSID</th>
+    <th>BSSID</th>
+    <th width="80">操作</th>
+  </tr>
+  <% @wifiinfos.each do |wifi| %>
+  <tr>
+    <td><%= sprintf("%07d", wifi.wifi_info_number) %></td>
+    <td>
+      <div id="list">
+	<% @stores.each do |store| %>
+	<% if wifi.store_id == store.id %>
+	<%= store.store_name %>
+	<% break %>
+	<% end %>
+	<% end %>
+      </div>
+    </td>
+    <td>
+      <div id="list"><%= wifi.ssid %></div>
+    </td>
+    <td>
+      <div id="list"><%= wifi.bssid %></div>
+    </td>
+    <td>
+      <%= link_to "編集", [:edit, :admin, wifi] %> / 
+      <%= link_to "削除", [:admin, wifi], method: :delete, confirm: "本当に削除しますか?" %></td>
+    <% end%>
+</table>
+<%= will_paginate @wifiinfos %>
+<% else %>
+<p>Wi-Fi情報がありません。</p>
+<% end %>

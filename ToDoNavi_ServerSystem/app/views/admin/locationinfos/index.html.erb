@@ -1,0 +1,53 @@
+<% @page_title = "位置情報一覧" %>
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "新規位置情報登録", :new_admin_locationinfo %></p>
+
+<%= form_tag :search_admin_locationinfos, method: :get do %>
+<p>
+  <%= collection_select(:store, nil, Store.all, :store_number, :store_name, :prompt => "店舗選択") %>
+  <%= submit_tag "検索" %>
+<% end %>
+
+<% if @locationinfos.present? %>
+<table class = "list">
+  <tr>
+    <th width="100">位置情報番号</th>
+    <th>対象店舗</th>
+    <th width="120">緯度</th>
+    <th width="120">経度</th>
+    <th width="80">操作</th>
+  </tr>
+  <% @locationinfos.each do |location| %>
+  <tr>
+    <td><%= sprintf("%07d", location.location_info_number) %></td>
+    <td>
+      <div id="list">
+	<% @stores.each do |store| %>
+	<% if location.store_id == store.id %>
+	<%= store.store_name %>
+	<% break %>
+	<% end %>
+	<% end %>
+      </div>
+    </td>
+    <td>
+      <div id="list2">
+	<%= number_with_precision(location.lat, :precision => 10) %>
+      </div>
+    </td>
+    <td>
+      <div id="list2">
+	<%= number_with_precision(location.long, :precision => 10) %>
+      </div>
+    </td>
+    <td>
+      <%= link_to "編集", [:edit, :admin, location] %> / 
+      <%= link_to "削除", [:admin, location], method: :delete, confirm: "本当に削除しますか？" %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p>位置情報がありません。</p>
+<% end %>

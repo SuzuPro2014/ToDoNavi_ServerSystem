@@ -1,0 +1,14 @@
+# coding: utf-8
+class CreateWifiinfos < ActiveRecord::Migration
+  def change
+    create_table :wifiinfos do |t|
+      t.integer :store_id, null: false          # 店舗側外部キー
+
+      t.integer :wifi_info_number, null: false  # Wi-Fi情報番号
+      t.string :ssid, null: false               # SSID
+      t.string :bssid, null: false              # BSSID
+      t.integer :store_number, null: false      # 店舗番号
+      t.timestamps
+    end
+  end
+end

@@ -1,0 +1,28 @@
+<% @page_title = "Login Form" %>
+
+<h1><%= @page_title %></h1>
+
+<% if flash.alert %>
+  <p class="alert">
+    <%= flash.alert %>
+  </p>
+<% end %>
+
+<%= form_tag :session do %>
+<table id="login_form">
+  <tr>
+    <td>User name：</td>
+    <td><%= text_field_tag "user", "", style: "width: 120px" %></td>
+  </tr>
+  <tr>
+    <td>Password：</td>
+    <td><%= password_field_tag "password", "", style: "width: 120px" %></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="right">
+      <%= submit_tag "Login" %>
+    </td>
+  </tr>
+</table>
+<%= hidden_field_tag "form", request.path %>
+<% end %>

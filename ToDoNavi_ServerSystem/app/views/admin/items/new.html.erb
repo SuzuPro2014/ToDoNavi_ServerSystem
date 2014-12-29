@@ -1,0 +1,18 @@
+<% @page_title = "新規商品登録" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for [:admin, @item] do |form| %>
+<%= render "form", form: form %>
+<table class="tcont">
+  <tr>
+    <td><%= form.submit %></td>
+  </tr>
+</table>
+<% end %>
+
+<table class="tcont">
+  <tr>
+    <td><%= link_to "一覧に戻る", :admin_items %></td>
+  </tr>
+</table>
+

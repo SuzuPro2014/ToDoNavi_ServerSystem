@@ -1,0 +1,2 @@
+class Locationinfos < ActiveRecord::Base
+end

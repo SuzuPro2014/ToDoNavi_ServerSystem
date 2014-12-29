@@ -1,0 +1,24 @@
+<%= render "shared/errors", obj: @wifiinfo %>
+
+<p>
+  「＊」が付いている項目は必須項目です。
+</p>
+
+<table class="attr">
+  <tr>
+    <th width="100"><%= form.label :store_number %></th>
+    <td><%= form.collection_select :store_number, Store.all, :store_number, :store_name, :prompt => "店舗選択" %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :wifi_info_number %></th>
+    <td><%= form.text_field :wifi_info_number %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :ssid %></th>
+    <td><%= form.text_field :ssid %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :bssid %></th>
+    <td><%= form.text_field :bssid %></td>
+  </tr>
+</table>
