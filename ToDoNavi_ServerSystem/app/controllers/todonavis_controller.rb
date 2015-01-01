@@ -87,11 +87,20 @@ class TodonavisController < ApplicationController
         result += [info.store_number]
       end
     end
-    if result.size < 1 then
-      render text: $stores
+    result2 = []
+    $stores.each do |store|
+      result.each do |result|
+        if store == result
+          result2 += store
+        end
+      end
+    end
+    
+    if result2.size < 1 then
+      render text: false
     else
-      result = result.uniq
-      $stores = result
+      result2 = result2.uniq
+      $stores = result2
       render text: true
     end
   end
